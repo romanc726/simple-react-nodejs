@@ -48,6 +48,11 @@ export default {
       type: 'array',
       of: [{ type: 'gridColumn' }],
       description: 'The columns that are part of this grid'
+    },
+    {
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'color'
     }
   ],
   preview: {

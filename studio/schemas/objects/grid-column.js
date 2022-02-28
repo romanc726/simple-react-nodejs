@@ -27,7 +27,9 @@ export default {
       of: [
         { type: 'freeform' },
         { type: 'accordions' },
-        { type: 'productCard' }
+        { type: 'productCard' },
+        { type: 'codeBlock' },
+        { type: 'newsletter' }
       ]
     }
   ],

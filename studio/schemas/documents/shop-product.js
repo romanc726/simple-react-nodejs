@@ -179,7 +179,12 @@ export default {
         { type: 'grid' },
         { type: 'hero' },
         { type: 'marquee' },
-        { type: 'dividerPhoto' }
+        { type: 'dividerPhoto' },
+        {
+          title: 'Reusable Section',
+          type: 'reference',
+          to: [{ type: 'section' }]
+        }
       ],
       validation: Rule =>
         Rule.custom(blocks => {

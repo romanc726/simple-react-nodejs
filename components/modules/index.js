@@ -7,6 +7,7 @@ const Marquee = dynamic(() => import('./marquee'))
 const DividerPhoto = dynamic(() => import('./divider-photo'))
 const ProductHero = dynamic(() => import('./product-hero'))
 const Collection = dynamic(() => import('./collection-grid'))
+const Newsletter = dynamic(() => import('../newsletter'))
 
 export const Module = ({
   index,
@@ -42,6 +43,16 @@ export const Module = ({
           index={index}
           data={{ ...module, products: collectionProducts }}
         />
+      )
+    case 'codeBlock':
+      return (
+        <section className="section" dangerouslySetInnerHTML={{ __html: module.code }}/>
+      )
+    case 'newsletter':
+      return (
+        <section className="section">
+          <Newsletter index={index} data={module} />
+        </section>
       )
     default:
       return null

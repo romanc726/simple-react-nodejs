@@ -4,9 +4,10 @@ import cx from 'classnames'
 import ProductCard from '@components/product-card'
 import Freeform from '@components/freeform'
 import AccordionList from '@components/accordion-list'
+import Newsletter from '@components/newsletter'
 
 const Grid = ({ data = {} }) => {
-  const { size, columns } = data
+  const { size, columns, backgroundColor } = data
 
   const getGridSize = (
     breakpoint,
@@ -36,7 +37,12 @@ const Grid = ({ data = {} }) => {
   }
 
   return (
-    <section className="section">
+    <section 
+      className="section"
+      style={{
+        backgroundColor: backgroundColor ? backgroundColor.hex : 'inherit',
+      }}
+    >
       <div className="section--content">
         <div
           className={`grid grid-cols-${size} gap-x-16 gap-y-16 sm:gap-x-32 lg:gap-x-48`}
@@ -88,6 +94,14 @@ const GridBlock = ({ block }) => {
           showThumbs
           showPrice
         />
+      )
+    case 'codeBlock':
+      return (
+        <div dangerouslySetInnerHTML={{ __html: block.code }}/>
+      )
+    case 'newsletter':
+      return (
+        <Newsletter data={block} />
       )
     default:
       return null

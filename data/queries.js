@@ -149,7 +149,28 @@ export const blocks = `
     _type,
     _key,
     product->${product}
-  }
+  },
+  _type == 'codeBlock' => {
+    _type,
+    _key,
+    code,
+  },
+  _type == 'newsletter' => {
+    "id": "block",
+    _type,
+    _key,
+    klaviyoListID,
+    submit,
+    successMsg[]{
+      ${ptContent}
+    },
+    errorMsg[]{
+      ${ptContent}
+    },
+    terms[]{
+      ${ptContent}
+    },
+  },
 `
 
 // Construct our content "modules" GROQ
@@ -169,7 +190,8 @@ export const modules = `
       blocks[]{
         ${blocks}
       }
-    }
+    },
+    backgroundColor
   },
   _type == 'hero' => {
     _type,
@@ -257,6 +279,27 @@ export const modules = `
       }
     },
     "noFilterResults": *[_type == "shopSettings"][0].noFilterResults[]{
+      ${ptContent}
+    },
+  },
+  _type == 'codeBlock' => {
+    _type,
+    _key,
+    code,
+  },
+  _type == 'newsletter' => {
+    "id": "module",
+    _type,
+    _key,
+    klaviyoListID,
+    submit,
+    successMsg[]{
+      ${ptContent}
+    },
+    errorMsg[]{
+      ${ptContent}
+    },
+    terms[]{
       ${ptContent}
     },
   }

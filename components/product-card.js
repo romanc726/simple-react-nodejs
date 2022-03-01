@@ -138,6 +138,15 @@ const ProductCard = React.forwardRef(
                 />
               </div>
             )}
+
+            {/* Out Stock */}
+            {!activeVariant.inStock && (
+              <div className="product-card--outstock">
+                <span className="label is-secondary">
+                  Sold Out
+                </span>
+              </div>
+            )}
           </div>
         )}
 

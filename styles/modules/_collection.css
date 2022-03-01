@@ -196,6 +196,10 @@
       @apply ml-8 px-6 py-4 rounded-md bg-pageText text-pageBG text-10 leading-125 tracking-widest font-semibold uppercase;
     }
   }
+
+  &--outstock {
+    @apply absolute top-0 right-0 mr-4 text-center z-1
+  }
 }
 
 .product-featured {

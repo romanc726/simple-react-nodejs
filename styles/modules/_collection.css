@@ -1,6 +1,6 @@
 .collection {
   @apply border-b;
-  
+
   &--tools {
     @apply sticky top-[var(--headerHeight)] z-2 flex justify-between bg-pageBG border-b;
   }
@@ -8,7 +8,7 @@
   &--content {
     @apply relative z-1 overflow-hidden;
   }
-  
+
   &--grid {
     @apply grid grid-cols-1 md:grid-cols-3 -m-1;
 
@@ -65,7 +65,7 @@
 .collection-count {
   @apply hidden relative ml-16 leading-100;
   vertical-align: super;
-  font-size: .5em;
+  font-size: 0.5em;
 
   /* Only show product counts for the mega-nav */
   .mega-nav & {
@@ -108,7 +108,7 @@
   &--visuals {
     @apply relative;
   }
-  
+
   &--photo {
     @apply relative overflow-hidden;
 
@@ -143,7 +143,7 @@
     @apply m-0 !important;
 
     .is-featured & {
-      @apply text-16 font-semibold;
+      @apply text-16;
     }
 
     .is-inline & {
@@ -151,7 +151,7 @@
     }
 
     + .price {
-      @apply mt-8;
+      @apply mt-8 text-16;
     }
   }
 
@@ -160,7 +160,7 @@
 
     &::after {
       @apply block absolute inset-0 z-2;
-      content: "";
+      content: '';
     }
   }
 
@@ -209,8 +209,8 @@
     @apply mt-4 text-center text-16 font-semibold transition-opacity duration-200;
 
     .product-featured:hover & {
-        @apply opacity-100 visible;
-      }
+      @apply opacity-100 visible;
+    }
   }
 
   &:hover {

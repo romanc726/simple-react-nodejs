@@ -35,9 +35,7 @@ const ProductActions = ({ activeVariant, klaviyoAccountID }) => {
               klaviyo={klaviyoAccountID}
             />
           ) : (
-            <div className="btn is-large is-disabled is-block">
-              Out of Stock
-            </div>
+            <div className="btn is-large is-disabled is-block">Sold out</div>
           )}
         </>
       )}

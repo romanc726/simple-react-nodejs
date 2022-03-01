@@ -152,7 +152,7 @@ const ProductCard = React.forwardRef(
 
         <div className="product-card--details">
           <div className="product-card--header">
-            <h2 className="product-card--title">
+            <h3 className="product-card--title">
               <Link
                 href={`/products/${
                   product.slug +
@@ -164,7 +164,7 @@ const ProductCard = React.forwardRef(
                   {product.title}
                 </a>
               </Link>
-            </h2>
+            </h3>
 
             {showPrice && (
               <ProductPrice

@@ -6,10 +6,10 @@
   }
 
   &--gallery {
-    @apply relative mb-48 md:mb-0 xs:p-32 md:p-96 bg-pageBG border-b md:border-none;
+    @apply relative mb-48 md:mb-0 xs:p-32 bg-pageBG border-b md:border-none;
 
     .carousel {
-      @apply max-w-xl mx-auto;
+      @apply mx-auto;
     }
   }
 

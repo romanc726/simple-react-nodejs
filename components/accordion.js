@@ -51,7 +51,7 @@ const Accordion = ({
         transition={{ duration: 0.5, ease: [0.19, 1.0, 0.22, 1.0] }}
         onAnimationComplete={(v) => setHasFocus(v === 'open')}
       >
-        <div className="accordion--inner" hidden={!isOpen && !hasFocus}>
+        <div className="accordion--inner">
           {children}
         </div>
       </m.div>

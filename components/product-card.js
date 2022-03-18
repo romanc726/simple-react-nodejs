@@ -142,9 +142,7 @@ const ProductCard = React.forwardRef(
             {/* Out Stock */}
             {!activeVariant.inStock && (
               <div className="product-card--outstock">
-                <span className="label is-secondary">
-                  Sold Out
-                </span>
+                <span className="label is-secondary">Sold Out</span>
               </div>
             )}
           </div>
@@ -152,7 +150,7 @@ const ProductCard = React.forwardRef(
 
         <div className="product-card--details">
           <div className="product-card--header">
-            <h3 className="product-card--title">
+            <h4 className="product-card--title">
               <Link
                 href={`/products/${
                   product.slug +
@@ -164,7 +162,7 @@ const ProductCard = React.forwardRef(
                   {product.title}
                 </a>
               </Link>
-            </h3>
+            </h4>
 
             {showPrice && (
               <ProductPrice

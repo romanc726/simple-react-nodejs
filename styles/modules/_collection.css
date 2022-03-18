@@ -26,7 +26,7 @@
   }
 
   &--pagination {
-    @apply relative p-16 sm:py-32 text-center is-textured bg-pageBG border-t;
+    @apply relative p-16 sm:py-32 text-center bg-pageText border-t;
   }
 
   &--count {
@@ -189,7 +189,7 @@
     @apply flex items-center justify-center;
 
     &--current {
-      @apply sm:text-16 sm:leading-150 font-semibold;
+      @apply sm:text-16 sm:leading-150;
     }
 
     &--discount {
@@ -198,7 +198,7 @@
   }
 
   &--outstock {
-    @apply absolute top-0 right-0 mr-4 text-center z-1
+    @apply absolute top-0 right-0 mr-4 text-center z-1;
   }
 }
 

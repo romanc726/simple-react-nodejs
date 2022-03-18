@@ -58,7 +58,7 @@
   }
 
   &--actions {
-    @apply sm:flex sticky bottom-0 mt-16 p-16 md:p-32 border-t bg-pageBG is-textured text-center;
+    @apply sm:flex sticky bottom-0 mt-16 p-16 md:p-32 border-t bg-pageBG text-center;
 
     .counter {
       @apply hidden sm:inline-flex mr-16;

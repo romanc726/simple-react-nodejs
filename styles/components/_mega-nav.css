@@ -10,8 +10,8 @@
       will-change: transform;
       transform-origin: 0 0;
       transform: scaleY(var(--h));
-      transition: transform .8s cubic-bezier(0.16, 1, 0.3, 1);
-      content: "";
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      content: '';
 
       /* account for the header when styled as an overlay that hasn't scrolled */
       .is-overlay:not(.has-bg) & {
@@ -22,8 +22,8 @@
     &::after {
       @apply absolute top-full inset-x-0 -mt-1 z-2 border-t;
       transform: translate3d(0, var(--hpx), 0);
-      transition: transform .8s cubic-bezier(0.16, 1, 0.3, 1);
-      content: "";
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      content: '';
 
       /* account for the header when styled as an overlay that hasn't scrolled */
       .is-overlay:not(.has-bg) & {
@@ -38,7 +38,7 @@
 
   &--backdrop {
     @apply fixed inset-0  bg-black bg-opacity-40 pointer-events-none opacity-0;
-    transition: opacity .15s linear;
+    transition: opacity 0.15s linear;
 
     &.is-active {
       @apply pointer-events-auto opacity-100;
@@ -55,7 +55,7 @@
 
 .mega-item {
   @apply absolute top-0 inset-x-0 z-1 -mt-1 overflow-hidden invisible pointer-events-none;
-  transition: visibility .2s .8s;
+  transition: visibility 0.2s 0.8s;
 
   &.is-active {
     @apply visible pointer-events-auto;
@@ -63,7 +63,7 @@
   }
 
   &--content {
-    @apply grid grid-cols-2 relative px-32 pt-4 pb-48;
+    @apply grid grid-cols-2 relative px-32 pt-4 pb-48 uppercase;
     will-change: transform;
   }
 
@@ -79,7 +79,7 @@
 
     &-title {
       @apply block absolute top-0 right-full w-10 text-12 uppercase tracking-widest font-semibold;
-      
+
       span {
         @apply block overflow-hidden absolute top-1/2 left-0 whitespace-nowrap rotate-90;
         transform-origin: 0 0;

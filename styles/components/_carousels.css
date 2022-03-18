@@ -2,7 +2,7 @@
   @apply relative w-full bg-black;
 
   &--container {
-    @apply relative overflow-hidden;
+    @apply relative overflow-hidden bg-white;
   }
 
   &--slides {
@@ -53,7 +53,7 @@
     @apply clean-btn w-32 h-32 p-8 rounded-full bg-transparent transition-colors duration-300;
 
     &:hover {
-      background: hsla(var(--pageText-hsl), .2);
+      background: hsla(var(--pageText-hsl), 0.2);
     }
 
     svg {
@@ -78,7 +78,7 @@
 
     &::after {
       @apply absolute left-1/2 -translate-x-1/2 inset-y-12 w-1 bg-pageBG opacity-30;
-      content: "";
+      content: '';
     }
   }
 
@@ -95,12 +95,12 @@
 
     .counter-flipper {
       @apply relative overflow-hidden;
-      
+
       span {
         @apply block;
-        font-feature-settings: "tnum";
+        font-feature-settings: 'tnum';
         will-change: transform;
-    
+
         + span {
           @apply absolute inset-x-0 top-0;
         }
@@ -110,14 +110,15 @@
 
   &--dots {
     @apply relative flex items-center h-32;
-    
+
     button {
       @apply clean-btn p-4 bg-transparent;
 
       &::before {
         @apply block relative w-8 h-8 bg-pageText rounded-full opacity-30;
-        transition: opacity .1s linear, transform .4s cubic-bezier(0.22, 1, 0.36, 1);
-        content: "";
+        transition: opacity 0.1s linear,
+          transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        content: '';
       }
 
       &:hover {

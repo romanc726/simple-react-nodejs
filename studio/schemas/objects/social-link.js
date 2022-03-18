@@ -25,8 +25,8 @@ const getIcon = icon => {
       return FaTwitter
     case 'YouTube':
       return FaYoutube
-    case 'Github':
-      return FaGithub
+    case 'Discord':
+      return FaDiscord
     default:
       return false
   }
@@ -54,7 +54,7 @@ export default {
           { title: 'Spotify', value: 'Spotify' },
           { title: 'Twitter', value: 'Twitter' },
           { title: 'YouTube', value: 'YouTube' },
-          { title: 'Github', value: 'Github' }
+          { title: 'Discord', value: 'Discord' }
         ]
       }
     },

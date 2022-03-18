@@ -47,15 +47,15 @@
 
   h4,
   .is-h4 {
-    @apply m-0 text-24 font-normal leading-135;
+    @apply m-0 text-24 font-normal leading-135 uppercase;
   }
 
   h5 {
-    @apply m-0 text-20 font-normal leading-125;
+    @apply m-0 text-20 font-normal leading-125 uppercase;
   }
 
   h6 {
-    @apply m-0 text-12 font-normal leading-125;
+    @apply m-0 text-12 font-normal leading-125 uppercase;
   }
 
   /* Links */

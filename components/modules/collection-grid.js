@@ -19,8 +19,14 @@ import ProductCard from '@components/product-card'
 import BlockContent from '@components/block-content'
 
 const Collection = ({ data = {} }) => {
-  const { title, products, filter, sort, paginationLimit, noFilterResults } =
-    data
+  const {
+    title,
+    products,
+    filter,
+    sort,
+    paginationLimit,
+    noFilterResults,
+  } = data
 
   if (!products || products.length === 0) return null
 
@@ -237,7 +243,7 @@ const Collection = ({ data = {} }) => {
 
         {hasPagination && (
           <div className="collection--pagination">
-            <button className="btn is-large" onClick={loadMore}>
+            <button className="btn is-large is-inverted" onClick={loadMore}>
               Load More
               <span className="sr-only">
                 {' '}

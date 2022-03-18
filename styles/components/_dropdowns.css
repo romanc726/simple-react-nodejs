@@ -3,7 +3,7 @@
 
   &.is-open {
     @apply sm:z-3;
-    
+
     @media screen(sm) {
       .dropdown--content {
         @apply opacity-100 visible pointer-events-auto;

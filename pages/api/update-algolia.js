@@ -17,27 +17,53 @@ const sanity = sanityClient({
 })
 
 export default async function handler(req, res) {
+  if (req.headers['content-type'] !== 'application/json') {
+    res.status(400)
+    res.json({ message: 'Bad request' })
+    return
+  }
+
+  const algoliaIndex = algolia.initIndex('my-index')
+
   const sanityAlgolia = indexer(
     {
       post: {
-        index: algolia.initIndex('posts'),
+        index: algoliaIndex,
+        projection: `{
+          title,
+          "path": slug.current,
+          "body": pt::text(body)
+        }`,
+      },
+      article: {
+        index: algoliaIndex,
+        projection: `{
+          heading,
+          "body": pt::text(body),
+          "authorNames": authors[]->name
+        }`,
       },
     },
-    document => {
+    (document) => {
       switch (document._type) {
         case 'post':
           return {
             title: document.title,
             path: document.slug.current,
-            publishedAt: document.publishedAt,
+            body: flattenBlocks(document.body),
+          }
+        case 'article':
+          return {
+            title: document.heading,
             excerpt: flattenBlocks(document.excerpt),
+            body: flattenBlocks(document.body),
           }
         default:
-          throw new Error(`Unknown type: ${document.type}`)
+          throw new Error('You didnt handle a type you declared interest in')
       }
-    }
+    },
   )
- 
+
   await sanityAlgolia.webhookSync(sanity, req.body)
 
   return res.status(200).send('ok')

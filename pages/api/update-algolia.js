@@ -15,13 +15,13 @@ export default async function handler(req, res) {
     return
   }
 
-  const { created, updated, deleted } = req.body.ids
-
   axios({
     url: `https://webhook.site/34f6fbb7-4e02-465d-84a5-cd843b699f3f`,
     method: 'POST',
     data: req.body,
   })
+
+  const { created, updated, deleted } = req.body.ids
 
   created.forEach(id => {
     if (id !== null) algoliaIndex.saveObject({ objectID: id })
@@ -32,7 +32,7 @@ export default async function handler(req, res) {
   })
 
   deleted.forEach(id => {
-    if (id !== null) algoliaIndex.deleteObject({ objectID: id })
+    if (id !== null) algoliaIndex.deleteObject(id)
   })
 
   return res.status(200).send('ok')

@@ -44,7 +44,13 @@ const Footer = ({ data = {} }) => {
                 <ThemeSwitch />
 
                 <div className="footer--disclaimer">
-                  <p>&copy; {new Date().getFullYear()}. All Rights Reserved.</p>
+                  <p>
+                    &copy; {new Date().getFullYear()}{' '}
+                    <a href="https://creatd.com" target="_blank">
+                      Creatd
+                    </a>
+                    . All Rights Reserved.
+                  </p>
                 </div>
               </div>
             )}

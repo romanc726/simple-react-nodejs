@@ -17,7 +17,7 @@
   }
 
   &--icon {
-    @apply inline-flex align-middle mt-[-.15em] has-indicator;
+    @apply inline-flex align-middle mt-[-.15em] has-indicator hidden;
   }
 
   &--content {
@@ -30,7 +30,7 @@
   }
 
   &--nav {
-    @apply block relative ml-8 pl-[10px];
+    @apply block relative ml-12 pl-[10px];
 
     a {
       color: hsla(var(--pageText-hsl), 0.3);

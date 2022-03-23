@@ -16,7 +16,7 @@ const PromoBar = React.memo(({ data = {} }) => {
   if (display === 'home' && router.asPath !== '/') return null
 
   return (
-    <div className="promo-bar is-inverted">
+    <div className="promo-bar">
       <div className="promo-bar--content">
         <ConditionalWrapper
           condition={link}

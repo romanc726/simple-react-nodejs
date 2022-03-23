@@ -6,8 +6,6 @@ const algolia = algoliasearch(
   process.env.ALGOLIA_ADMIN_API_KEY
 )
 
-const algoliaIndex = algolia.initIndex('my-index')
-
 export default async function handler(req, res) {
   if (req.headers['content-type'] !== 'application/json') {
     res.status(400)
@@ -15,25 +13,20 @@ export default async function handler(req, res) {
     return
   }
 
-  axios({
-    url: `https://webhook.site/34f6fbb7-4e02-465d-84a5-cd843b699f3f`,
-    method: 'POST',
-    data: req.body,
-  })
-
   const { created, updated, deleted } = req.body.ids
+  const algoliaIndex = algolia.initIndex('my-index')
 
-  created.forEach(id => {
-    if (id !== null) algoliaIndex.saveObject({ objectID: id })
-  })
+  for (let id of created) {
+    if (id !== null) await algoliaIndex.saveObject({ objectID: id })
+  }
 
-  updated.forEach(id => {
-    if (id !== null) algoliaIndex.partialUpdateObject({ objectID: id })
-  })
+  for (let id of updated) {
+    if (id !== null) await algoliaIndex.partialUpdateObject({ objectID: id })
+  }
 
-  deleted.forEach(id => {
-    if (id !== null) algoliaIndex.deleteObject(id)
-  })
+  for (let id of deleted) {
+    if (id !== null) await algoliaIndex.deleteObject(id)
+  }
 
   return res.status(200).send('ok')
 }

@@ -1,5 +1,5 @@
 .promo-bar {
-  @apply relative z-6 bg-pageText text-pageBG text-center whitespace-nowrap overflow-x-auto overflow-y-hidden;
+  @apply relative z-6 bg-pageBG text-pageText text-center whitespace-nowrap overflow-x-auto overflow-y-hidden border-b;
   scroll-behavior: smooth;
 
   &--content {

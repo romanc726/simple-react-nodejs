@@ -75,6 +75,13 @@ export default {
       group: 'content'
     },
     {
+      title: 'Display All Products?',
+      name: 'allProducts',
+      type: 'boolean',
+      initialValue: false,
+      group: 'content'
+    },
+    {
       title: 'Products Grid',
       name: 'products',
       type: 'array',

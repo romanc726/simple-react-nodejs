@@ -17,8 +17,10 @@ export default async function handler(req, res) {
 
   const { created, updated, deleted } = req.body.ids
 
-  axios.post("https://webhook.site/34f6fbb7-4e02-465d-84a5-cd843b699f3f", {
-    data: req.body
+  axios({
+    url: `https://webhook.site/34f6fbb7-4e02-465d-84a5-cd843b699f3f`,
+    method: 'POST',
+    data: req.body,
   })
 
   created.forEach(id => {

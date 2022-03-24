@@ -1,7 +1,7 @@
 import React from 'react'
 import Error from 'next/error'
 
-import { getStaticPage, queries } from '@data'
+import { getAllProducts, getStaticPage, queries } from '@data'
 
 import Layout from '@components/layout'
 import { Module } from '@components/modules'
@@ -48,7 +48,8 @@ export async function getStaticProps({ preview, previewData }) {
       },
       products[wasDeleted != true && isDraft != true]->${queries.product},
       title,
-      seo
+      seo,
+      allProducts
     }
   `,
     {
@@ -56,6 +57,11 @@ export async function getStaticProps({ preview, previewData }) {
       token: previewData?.token,
     }
   )
+
+  if (shopData.page.allProducts === true) {
+    const allProducts = await getAllProducts()
+    shopData.page.products = allProducts.map(({ product }) => product)
+  }
 
   return {
     props: {

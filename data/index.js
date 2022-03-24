@@ -116,4 +116,14 @@ export async function getCollection(slug, preview) {
   return data
 }
 
+// Fetch all products
+export async function getAllProducts() {
+  const data = await getSanityClient().fetch(
+    `*[_type == "product" && !(_id in [${queries.homeID}, ${queries.shopID}, ${queries.errorID}]) && wasDeleted != true && isDraft != true]{
+      "product": ${queries.product}
+    }`
+  )
+  return data
+}
+
 export { queries }

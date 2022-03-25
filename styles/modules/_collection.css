@@ -181,7 +181,7 @@
     will-change: transform;
 
     .product-card:hover & {
-      @apply opacity-100 visible translate-y-0;
+      @apply opacity-100  translate-y-0;
     }
   }
 

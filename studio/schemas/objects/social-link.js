@@ -2,8 +2,8 @@ import {
   FaApple,
   FaFacebookF,
   FaInstagram,
-  FaSoundcloud,
-  FaSpotify,
+  FaDiscord,
+  FaOpensea,
   FaTwitter,
   FaYoutube,
   FaGithub
@@ -17,10 +17,10 @@ const getIcon = icon => {
       return FaFacebookF
     case 'Instagram':
       return FaInstagram
-    case 'Soundcloud':
-      return FaSoundcloud
-    case 'Spotify':
-      return FaSpotify
+    case 'Discord':
+      return FaDiscord
+    case 'Opensea':
+      return FaOpensea
     case 'Twitter':
       return FaTwitter
     case 'YouTube':
@@ -50,8 +50,8 @@ export default {
           { title: 'Apple', value: 'Apple' },
           { title: 'Facebook', value: 'Facebook' },
           { title: 'Instagram', value: 'Instagram' },
-          { title: 'Soundcloud', value: 'Soundcloud' },
-          { title: 'Spotify', value: 'Spotify' },
+          { title: 'Discord', value: 'Discord' },
+          { title: 'Opensea', value: 'Opensea' },
           { title: 'Twitter', value: 'Twitter' },
           { title: 'YouTube', value: 'YouTube' },
           { title: 'Discord', value: 'Discord' }

@@ -78,7 +78,7 @@ export default {
       title: 'Display All Products?',
       name: 'allProducts',
       type: 'boolean',
-      initialValue: false,
+      initialValue: true,
       group: 'content'
     },
     {

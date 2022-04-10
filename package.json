@@ -47,7 +47,8 @@
     "sanity-algolia": "^1.0.3",
     "shopify-buy": "^2.13.0",
     "sitemap": "^7.0.0",
-    "swr": "^1.0.0"
+    "swr": "^1.0.0",
+    "use-debounce": "^7.0.1"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^12.0.1",

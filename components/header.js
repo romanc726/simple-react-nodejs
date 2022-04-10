@@ -185,6 +185,15 @@ const Header = ({ data = {}, isTransparent, onSetup = () => {} }) => {
                     )}
 
                     <CartToggle />
+
+                    <button
+                      className={cx('search-btn', { 'is-open': meganav.activeID === 'search' })}
+                      aria-expanded={ meganav.activeID === 'search' }
+                      aria-controls={`meganav-search`}
+                      onClick={() => toggleMegaNav( meganav.activeID !== 'search' ? true : 'toggle', 'search')}
+                    >
+                      <Icon name="Search" id="search" viewBox="0 0 24 24" />
+                    </button>
                   </div>
                 </div>
               </nav>

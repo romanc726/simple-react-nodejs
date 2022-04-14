@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { m } from 'framer-motion'
 import Link from 'next/link'
-import { useDebouncedCallback } from 'use-debounce';
+import { useRouter } from 'next/router'
+import { useDebouncedCallback } from 'use-debounce'
 
 import { fadeAnim } from '@lib/animate'
 import { useToggleMegaNav } from '@lib/context'
 
 const SearchNavigation = () => {
+  const router = useRouter()
   const toggleMegaNav = useToggleMegaNav()
   const [hits, setHits] = useState([])
 
@@ -50,7 +52,15 @@ const SearchNavigation = () => {
             onChange={(e) => {
               const value = e.target.value
               e.target.parentNode.classList.toggle('is-filled', value)
-              fetchResult(value)
+              if (value.trim() !== '') fetchResult(value)
+              else setHits([])
+            }}
+            onKeyDown={(e) => {
+              if (e.code == 'Enter') {
+                e.preventDefault()
+                toggleMegaNav(false)
+                router.push('/search?query=' + e.target.value)
+              }
             }}
           />
         </div>
@@ -59,7 +69,7 @@ const SearchNavigation = () => {
         <div className='text-20'>Search Result</div>
         <div className='grid grid-cols-3 gap-10 mt-20'>
           {hits.map(({ title, slug }) => (
-            <Link href={`/products/${slug}`}>
+            <Link href={`/products/${slug}`} key={slug}>
               <a
                 className='text-20'
                 onClick={() => toggleMegaNav(false)}

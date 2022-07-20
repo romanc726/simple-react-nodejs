@@ -258,9 +258,3 @@ a[href='#content'].skip-link {
     @apply mx-8 p-8 text-14 leading-150 font-semibold uppercase;
   }
 }
-
-.search-btn {
-  width: 3.5rem;
-  height: 3.5rem;
-  background-color: transparent;
-}

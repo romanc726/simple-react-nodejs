@@ -11,18 +11,16 @@ import { useSiteContext, useToggleMegaNav } from '@lib/context'
 
 import Menu from '@components/menu'
 import FeaturedProducts from '@components/menu-featured-products'
-import SearchNavigation from '@components/search-nav'
 
 const MegaNavigation = ({ items = [], headerHeight }) => {
   const dropdowns = items.filter((item) => {
     return 'dropdownItems' in item
   })
 
+  if (!dropdowns.length) return null
+
   const toggleMegaNav = useToggleMegaNav()
   const { meganav } = useSiteContext()
-
-  if (meganav.activeID !== 'search' && !dropdowns.length) return null
-
   const activeNav = useRef()
   const activeNavRect = useRect(activeNav, { observe: true })
   const [hasFocus, setHasFocus] = useState(false)
@@ -50,55 +48,51 @@ const MegaNavigation = ({ items = [], headerHeight }) => {
           className="mega-nav"
           onKeyDown={(e) => handleKeyDown(e)}
         >
-          {(meganav.activeID === 'search') ? (
-            <SearchNavigation />
-          ) : (
-            dropdowns.map((dropdown, key) => {
-              const isActive =
-                meganav.isOpen && meganav.activeID === dropdown._key
+          {dropdowns.map((dropdown, key) => {
+            const isActive =
+              meganav.isOpen && meganav.activeID === dropdown._key
 
-              return (
-                <div
-                  key={key}
-                  ref={isActive ? (ref) => (activeNav.current = ref) : null}
-                  id={`meganav-${dropdown._key}`}
-                  className={cx('mega-item', {
-                    'is-active': isActive,
-                  })}
-                >
-                  <div className="mega-item--outer">
-                    <div className="mega-item--inner">
-                      <m.div
-                        initial="hide"
-                        animate={isActive ? 'show' : 'hide'}
-                        onAnimationComplete={(v) => setHasFocus(v === 'show')}
-                        variants={swipeAnim}
-                        className="mega-item--content"
-                      >
-                        <Menu
-                          items={dropdown.dropdownItems}
-                          hasFocus={hasFocus && isActive}
-                          onClick={() => toggleMegaNav(false)}
-                        />
+            return (
+              <div
+                key={key}
+                ref={isActive ? (ref) => (activeNav.current = ref) : null}
+                id={`meganav-${dropdown._key}`}
+                className={cx('mega-item', {
+                  'is-active': isActive,
+                })}
+              >
+                <div className="mega-item--outer">
+                  <div className="mega-item--inner">
+                    <m.div
+                      initial="hide"
+                      animate={isActive ? 'show' : 'hide'}
+                      onAnimationComplete={(v) => setHasFocus(v === 'show')}
+                      variants={swipeAnim}
+                      className="mega-item--content"
+                    >
+                      <Menu
+                        items={dropdown.dropdownItems}
+                        hasFocus={hasFocus && isActive}
+                        onClick={() => toggleMegaNav(false)}
+                      />
 
-                        {dropdown.featured && (
-                          <div className="mega-item--featured">
-                            <div className="mega-item--featured-title">
-                              <span>Featured</span>
-                            </div>
-                            <FeaturedProducts
-                              products={dropdown.featured}
-                              onClick={() => toggleMegaNav(false)}
-                            />
+                      {dropdown.featured && (
+                        <div className="mega-item--featured">
+                          <div className="mega-item--featured-title">
+                            <span>Featured</span>
                           </div>
-                        )}
-                      </m.div>
-                    </div>
+                          <FeaturedProducts
+                            products={dropdown.featured}
+                            onClick={() => toggleMegaNav(false)}
+                          />
+                        </div>
+                      )}
+                    </m.div>
                   </div>
                 </div>
-              )
-            })
-          )}
+              </div>
+            )
+          })}
         </div>
       </FocusTrap>
       <div

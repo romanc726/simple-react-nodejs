@@ -42,6 +42,17 @@ export default {
       to: [{ type: 'page' }, { type: 'collection' }, { type: 'product' }],
       description: '(optional) Select a page to link the promo banner to',
       hidden: ({ parent }) => !parent.enabled
+    },
+    {
+      title: 'External URL',
+      name: 'externalURL',
+      type: 'url',
+      description: '(optional) Select a page to link the promo banner to',
+      hidden: ({ parent }) => !parent.enabled,
+      validation: Rule =>
+        Rule.uri({
+          scheme: ['http', 'https', 'mailto', 'tel']
+        })
     }
   ],
   preview: {

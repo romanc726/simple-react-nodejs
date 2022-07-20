@@ -330,6 +330,7 @@ export const site = `
         enabled,
         display,
         text,
+        externalURL,
         "link": link->{
           ${page}
         }
@@ -425,4 +426,9 @@ export const site = `
     },
     "gtmID": *[_type == "generalSettings"][0].gtmID,
   }
+`
+
+// All Products
+export const allProducts = `
+  *[_type == "product" && wasDeleted != true && isDraft != true]${product} | order(title asc)
 `

@@ -57,10 +57,21 @@ export default {
       description: 'Display text when a filtered collection is empty'
     },
     {
+      title: 'Free Shipping Minimum',
+      name: 'freeShippingMinimum',
+      type: 'number'
+    },
+    {
       title: 'Cart Message',
       name: 'cartMessage',
       type: 'string',
       description: 'Display a message below the cart checkout button'
+    },
+    {
+      title: 'Cart Upsell Products',
+      name: 'upsellProducts',
+      type: 'array',
+      of: [{ type: 'productCartUpsellProducts' }],
     }
   ],
   preview: {

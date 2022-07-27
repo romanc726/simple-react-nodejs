@@ -6,7 +6,7 @@
   }
 
   &--gallery {
-    @apply relative mb-48 md:mb-0 xs:p-32 bg-pageBG border-b md:border-none;
+    @apply relative mb-48 md:mb-0 xs:p-32 border-b md:border-none;
 
     .carousel {
       @apply mx-auto;
@@ -14,7 +14,7 @@
   }
 
   &--details {
-    @apply bg-pageBG flex flex-col;
+    @apply flex flex-col;
   }
 
   &--info {
@@ -53,15 +53,54 @@
     }
   }
 
+  &--desc {
+    @apply pb-32 border-b;
+  }
+
   &--options {
     @apply mt-48;
   }
 
   &--actions {
-    @apply sm:flex sticky bottom-0 mt-16 p-16 md:p-32 border-t bg-pageBG text-center;
+    @apply w-full max-w-xl m-auto p-16 sm:p-32 sm:pt-0;
 
     .counter {
       @apply hidden sm:inline-flex mr-16;
+    }
+
+    .additional-text {
+      @apply text-center mt-16 text-14;
+
+      div {
+        @apply flex justify-center items-center gap-10;
+
+        svg {
+          @apply w-28 h-28
+        }
+      }
+    }
+
+    &--fixed {
+      @apply opacity-0 justify-between border-t fixed w-full left-0 bottom-0 px-16 py-8 xs:px-32 xs:py-16;
+
+      .varient--name {
+        @apply m-0 text-16 sm:text-20 leading-135 font-semibold text-left;
+      }
+      .product--name {
+        @apply m-0 text-16 sm:text-20 leading-135 font-normal;
+      }
+
+      .action-wrapper {
+        @apply flex justify-between gap-20;
+
+        .is-fixed-action-bar {
+          @apply text-16 sm:text-24;
+        }
+      }
+    }
+
+    .show-desktop-bar {
+      @apply flex z-8 opacity-100;
     }
   }
 
@@ -71,18 +110,26 @@
 }
 
 .option {
-  @apply flex mt-16 py-16 border-t;
+  /* @apply flex mt-16 py-16 border-t; */
 
   &--title {
-    @apply mr-48 text-12 font-semibold uppercase tracking-wider;
+    @apply mt-30 font-semibold text-16 uppercase;
   }
 
   &--values {
-    @apply flex flex-wrap justify-end ml-auto gap-x-8 gap-y-8;
+    @apply flex flex-wrap justify-start ml-auto gap-x-8 gap-y-8 mt-8;
     grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
   }
 
-  &--swatch {
-    @apply clean-btn p-0 bg-transparent;
+  &--switch {
+    @apply clean-btn flex items-center p-8 bg-transparent border rounded-full;
+
+    &--label {
+      @apply mx-8 text-14 font-semibold uppercase;
+    }
+  }
+
+  &--switch.is-active {
+    @apply bg-pageText text-pageBG;
   }
 }

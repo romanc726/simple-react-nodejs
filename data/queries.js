@@ -314,6 +314,9 @@ export const site = `
     "rootDomain": *[_type == "generalSettings"][0].siteURL,
     "shop": *[_type == "shopSettings"][0]{
       storeURL,
+      freeShippingMinimum,
+      upsellProducts,
+      "allProduct": *[_type == "product" && wasDeleted != true && isDraft != true]${product} | order(title asc),
       cartMessage
     },
     "productCounts": [ {"slug": "all", "count": count(*[_type == "product"])} ] + *[_type == "collection"]{

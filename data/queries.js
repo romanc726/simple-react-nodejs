@@ -115,7 +115,8 @@ export const product = `
         position,
         value
       },
-      seo
+      seo,
+      variantModules[]
     },
     "klaviyoAccountID": *[_type == "generalSettings"][0].klaviyoAccountID,
     "filters": filters[]{

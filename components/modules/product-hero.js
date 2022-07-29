@@ -8,17 +8,12 @@ import {
   ProductActions,
 } from '@components/product'
 
-const ProductHero = ({ product, activeVariant, onVariantChange }) => {
-  let heroBG = 'var(--pageBG)'
-  activeVariant.options?.forEach(op => {
-    if (op.value.indexOf('-') > -1) {
-      heroBG = op.value.split('-')[1]
-    }
-  });
+const ProductHero = ({ product, activeVariant, onVariantChange, currentOpSetting }) => {
+  const heroBG = currentOpSetting?.color?.hex ?? 'var(--pageBG)'
   return (
     <section className="product">
       <div className="product--content">
-        <div className="product--gallery" style={{ backgroundColor: heroBG}}>
+        <div className="product--gallery" style={{ backgroundColor: heroBG }}>
           <ProductGallery
             photosets={product.photos.main}
             activeVariant={activeVariant}
@@ -27,7 +22,7 @@ const ProductHero = ({ product, activeVariant, onVariantChange }) => {
           />
         </div>
 
-        <div className="product--details" style={{ backgroundColor: heroBG}}>
+        <div className="product--details" style={{ backgroundColor: heroBG }}>
           <div className="product--info">
             <div className="product--header">
               <div className="product--title">
@@ -69,14 +64,14 @@ const ProductHero = ({ product, activeVariant, onVariantChange }) => {
               onVariantChange={onVariantChange}
               className="product--form"
             />
-          </div>
 
-          <ProductActions
-            activeVariant={activeVariant}
-            klaviyoAccountID={product.klaviyoAccountID}
-            style={{ backgroundColor: heroBG}}
-            product={product}
-          />
+            <ProductActions
+              activeVariant={activeVariant}
+              klaviyoAccountID={product.klaviyoAccountID}
+              style={{ backgroundColor: heroBG }}
+              product={product}
+            />
+          </div>
         </div>
       </div>
     </section>

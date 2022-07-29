@@ -73,29 +73,26 @@ const ProductOption = ({
             }
           })
 
-          const opTitle = value.indexOf('-') > -1 ? value.split('-')[0] : value
-          const opValue = value.indexOf('-') > -1 ? value.split('-')[1] : ''
-
           return (
             <RadioItem
               key={key}
               title={`${option.name}: ${value}`}
               value={value}
               className={cx({
-                btn: !opValue,
-                'option--switch': opValue,
+                btn: !optSettings?.color,
+                'option--switch': optSettings?.color,
                 'is-active': isActive,
                 'is-unavailable': !hasVariants,
                 'is-soldout': !inStock && hasVariants && !isActive,
               })}
             >
-              {opValue ? (
+              {optSettings?.color ? (
                 <>
                 <Swatch
                   label={`Select "${value}" ${option.name} option`}
-                  color={{ hex: opValue }}
+                  color={optSettings?.color}
                 />
-                <div className="option--switch--label">{opTitle}</div>
+                <div className="option--switch--label">{value}</div>
                 </>
               ) : (
                 <>{value}</>

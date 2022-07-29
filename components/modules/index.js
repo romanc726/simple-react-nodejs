@@ -19,6 +19,12 @@ export const Module = ({
 }) => {
   const type = module._type
 
+  const opNameValueList = activeVariant?.options?.map((op) => {
+    return op.name + ':' + op.value
+  })
+
+  const currentOpSetting = product?.optionSettings?.find((ops) => opNameValueList.indexOf(ops.forOption) > -1)
+
   switch (type) {
     case 'grid':
       return <Grid index={index} data={module} />
@@ -30,12 +36,21 @@ export const Module = ({
       return <DividerPhoto index={index} data={module} />
     case 'productHero':
       return (
-        <ProductHero
-          index={index}
-          product={product}
-          activeVariant={activeVariant}
-          onVariantChange={onVariantChange}
-        />
+        <>
+          <ProductHero
+            index={index}
+            product={product}
+            activeVariant={activeVariant}
+            onVariantChange={onVariantChange}
+            currentOpSetting={currentOpSetting}
+          />
+          {activeVariant?.variantModules?.map((md, key) => (
+            md._type === 'grid' ? <Grid index={key} data={md} /> :
+              md._type === 'hero' ? <Hero index={key} data={md} /> :
+                md._type === 'marquee' ? <Marquee index={key} data={md} /> :
+                  md._type === 'dividerPhoto' ? <DividerPhoto index={key} data={md} /> : null
+          ))}
+        </>
       )
     case 'collectionGrid':
       return (

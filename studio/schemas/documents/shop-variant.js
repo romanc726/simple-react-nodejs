@@ -141,6 +141,23 @@ export default {
       hidden: true,
       fieldset: '2up',
       group: 'shopify'
+    },
+    {
+      title: 'Variant Modules',
+      name: 'variantModules',
+      type: 'array',
+      of: [
+        { type: 'grid' },
+        { type: 'hero' },
+        { type: 'marquee' },
+        { type: 'dividerPhoto' },
+        {
+          title: 'Reusable Section',
+          type: 'reference',
+          to: [{ type: 'section' }]
+        }
+      ],
+      group: 'content'
     }
   ],
   preview: {

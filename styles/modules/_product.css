@@ -62,7 +62,7 @@
   }
 
   &--actions {
-    @apply w-full max-w-xl m-auto p-16 sm:p-32 sm:pt-0;
+    @apply w-full max-w-xl m-auto py-16 sm:py-32;
 
     .counter {
       @apply hidden sm:inline-flex mr-16;

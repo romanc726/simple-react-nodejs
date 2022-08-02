@@ -77,6 +77,17 @@ export async function getProduct(slug, preview) {
         },
         "product": ${queries.product},
         title,
+        "variantModules": *[_type == "productVariant" && productID == ^.productID && wasDeleted != true && isDraft != true]{
+          "modules": variantModules[]{
+            defined(_ref) => { ...@->content[0] {
+              ${queries.modules}
+            }},
+            !defined(_ref) => {
+              ${queries.modules},
+            }
+          },
+          variantID
+        },
         seo
       },
       ${queries.site}

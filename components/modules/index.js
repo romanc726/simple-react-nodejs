@@ -16,6 +16,7 @@ export const Module = ({
   activeVariant,
   onVariantChange,
   collectionProducts,
+  variantModules,
 }) => {
   const type = module._type
 
@@ -44,7 +45,7 @@ export const Module = ({
             onVariantChange={onVariantChange}
             currentOpSetting={currentOpSetting}
           />
-          {activeVariant?.variantModules?.map((md, key) => (
+          {variantModules?.modules?.map((md, key) => (
             md._type === 'grid' ? <Grid index={key} data={md} /> :
               md._type === 'hero' ? <Hero index={key} data={md} /> :
                 md._type === 'marquee' ? <Marquee index={key} data={md} /> :

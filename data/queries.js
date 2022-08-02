@@ -116,6 +116,7 @@ export const product = `
         value
       },
       seo,
+      variantDescription,
       variantModules[]
     },
     "klaviyoAccountID": *[_type == "generalSettings"][0].klaviyoAccountID,

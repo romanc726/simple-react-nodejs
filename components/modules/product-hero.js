@@ -10,6 +10,7 @@ import {
 
 const ProductHero = ({ product, activeVariant, onVariantChange, currentOpSetting }) => {
   const heroBG = currentOpSetting?.color?.hex ?? 'var(--pageBG)'
+  const isVariantDesc = activeVariant.variantDescription ? activeVariant.variantDescription[0].children[0].text?.trim() : null
   return (
     <section className="product">
       <div className="product--content">
@@ -52,9 +53,9 @@ const ProductHero = ({ product, activeVariant, onVariantChange, currentOpSetting
               />
             </div>
 
-            {product.description && (
+            {(isVariantDesc || product.description) && (
               <div className="product--desc">
-                <BlockContent blocks={product.description} />
+                <BlockContent blocks={isVariantDesc ? activeVariant.variantDescription : product.description} />
               </div>
             )}
 

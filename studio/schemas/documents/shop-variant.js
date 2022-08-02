@@ -143,6 +143,12 @@ export default {
       group: 'shopify'
     },
     {
+      title: 'Variant Description',
+      name: 'variantDescription',
+      type: 'simplePortableText',
+      group: 'content'
+    },
+    {
       title: 'Variant Modules',
       name: 'variantModules',
       type: 'array',

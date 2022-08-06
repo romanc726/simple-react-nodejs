@@ -3,7 +3,7 @@ import Player from '@vimeo/player'
 import useInView from 'react-cool-inview'
 import cx from 'classnames'
 
-const VideoLoop = ({
+const VimeoLoop = ({
   title,
   id,
   width = 16,
@@ -54,4 +54,4 @@ const VideoLoop = ({
   )
 }
 
-export default VideoLoop
+export default VimeoLoop

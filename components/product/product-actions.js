@@ -21,12 +21,24 @@ const ProductActions = ({ activeVariant, klaviyoAccountID, style, product }) => 
   useEffect(() => {
     if (isBrowser) {
       isViewHeight = document.onscroll = () => {
-        if (window.scrollY > 980) {
+        const scrollHeight = Math.max(
+          document.body.scrollHeight, document.documentElement.scrollHeight,
+          document.body.offsetHeight, document.documentElement.offsetHeight,
+          document.body.clientHeight, document.documentElement.clientHeight
+        )
+        if (window.innerWidth >= 1200 && window.scrollY > 980 && window.scrollY < (scrollHeight - 1100)) {
           setIsView(true)
+          return true
+        } else if (window.innerWidth >= 768 && window.innerWidth < 1200 && window.scrollY > 980 && window.scrollY < (scrollHeight - 1600)) {
+          setIsView(true)
+          return true
+        } else if (window.innerWidth < 768 && window.scrollY > 980 && window.scrollY < (scrollHeight - 2000)) {
+          setIsView(true)
+          return true
         } else {
           setIsView(false)
+          return false
         }
-        return window.scrollY > 980
       }
     }
   }, [isBrowser, isViewHeight])
@@ -50,7 +62,7 @@ const ProductActions = ({ activeVariant, klaviyoAccountID, style, product }) => 
               </ProductAdd>
             </div>
           </div>
-          <div className="flex mt-16">
+          <div className="flex mt-24">
             {/* <ProductCounter
               id={activeVariant.id}
               max={10}

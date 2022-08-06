@@ -6,6 +6,9 @@ import { fadeAnim } from '@lib/animate'
 
 import Carousel from '@components/carousel'
 import Photo from '@components/photo'
+import VimeoLoop from '@components/vimeo-loop'
+import VideoLoop from '@components/video-loop'
+import YoutubeLoop from '@components/youtube-loop'
 
 const ProductGallery = ({
   photosets,
@@ -61,7 +64,10 @@ const ProductGallery = ({
               hasDrag={hasDrag}
             >
               {photos.map((photo, key) => (
-                <Photo key={key} photo={photo} className="carousel--photo" />
+                photo.id ? <Photo key={key} photo={photo} className="carousel--photo" /> :
+                  photo.srcType === "vimeoId" ? <VimeoLoop title={photo.title} id={photo.vimeoId} /> :
+                    photo.srcType === "youtubeId" ? <YoutubeLoop title={photo.title} id={photo.youtubeId} /> :
+                      <VideoLoop url={photo.videoUrl || photo.video} poster={photo.posterImage} />
               ))}
             </Carousel>
           </m.div>

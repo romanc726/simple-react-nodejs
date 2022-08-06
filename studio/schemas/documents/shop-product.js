@@ -149,7 +149,7 @@ export default {
       title: 'Gallery',
       name: 'galleryPhotos',
       type: 'array',
-      of: [{ type: 'productGalleryPhotos' }],
+      of: [{ type: 'productGalleryMedias' }],
       description:
         'Define a Gallery for your product, or for a subset of variants',
       group: 'photos'

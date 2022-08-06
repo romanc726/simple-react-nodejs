@@ -42,6 +42,22 @@ export const imageMeta = `
   "lqip": asset->metadata.lqip
 `
 
+// Construct our "video meta" GROQ
+export const videoMeta = `
+  srcType,
+  "video": video.asset->url,
+  vimeoId,
+  videoUrl,
+  youtubeId,
+  customRatio,
+  "posterImage": posterImage{
+    photo {
+    ${imageMeta}
+    }
+  },
+  alt
+`
+
 // Construct our "portable text content" GROQ
 export const ptContent = `
   ...,
@@ -77,7 +93,15 @@ export const product = `
       "main": galleryPhotos[]{
         forOption,
         photos[]{
-          ${imageMeta}
+          (_type != 'photo' && _type != 'video') => {
+            ${imageMeta}
+          },
+          _type == 'photo' => {
+            ${imageMeta}
+          },
+          _type == 'video' => {
+            ${videoMeta}
+          },
         }
       },
       "listing": listingPhotos[]{

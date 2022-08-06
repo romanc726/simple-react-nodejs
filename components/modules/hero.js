@@ -1,7 +1,7 @@
 import React from 'react'
 
 import BlockContent from '@components/block-content'
-import VideoLoop from '@components/vimeo-loop'
+import VimeoLoop from '@components/vimeo-loop'
 import Photo from '@components/photo'
 
 const Hero = ({ data = {} }) => {
@@ -20,10 +20,10 @@ const Hero = ({ data = {} }) => {
       {bgType === 'video' && (
         <>
           <div className="hero--bg is-desktop">
-            <VideoLoop title={video.title} id={video.id} />
+            <VimeoLoop title={video.title} id={video.id} />
           </div>
           <div className="hero--bg is-mobile">
-            <VideoLoop title={video.title} id={video.id} />
+            <VimeoLoop title={video.title} id={video.id} />
           </div>
         </>
       )}

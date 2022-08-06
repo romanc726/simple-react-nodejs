@@ -39,6 +39,7 @@ import shopFilter from './objects/shop-filter'
 import shopSort from './objects/shop-sort'
 
 import productCartUpsellProducts from './objects/product-cart-upsell-products'
+import productGalleryMedias from './objects/product-gallery-medias'
 import productGalleryPhotos from './objects/product-gallery-photos'
 import productListingPhotos from './objects/product-listing-photos'
 import productCartPhotos from './objects/product-cart-photos'
@@ -111,6 +112,7 @@ export default createSchema({
     shopSort,
 
     productCartUpsellProducts,
+    productGalleryMedias,
     productGalleryPhotos,
     productListingPhotos,
     productCartPhotos,

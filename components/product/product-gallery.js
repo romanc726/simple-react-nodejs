@@ -65,8 +65,8 @@ const ProductGallery = ({
             >
               {photos.map((photo, key) => (
                 photo.id ? <Photo key={key} photo={photo} className="carousel--photo" /> :
-                  photo.srcType === "vimeoId" ? <VimeoLoop title={photo.title} id={photo.vimeoId} /> :
-                    photo.srcType === "youtubeId" ? <YoutubeLoop title={photo.title} id={photo.youtubeId} /> :
+                  photo.srcType === "vimeoId" ? <YoutubeLoop title={photo.title} id={photo.vimeoId} srcType="vimeoId" /> :
+                    photo.srcType === "youtubeId" ? <YoutubeLoop title={photo.title} id={photo.youtubeId} srcType="youtubeId" /> :
                       <VideoLoop url={photo.videoUrl || photo.video} poster={photo.posterImage} />
               ))}
             </Carousel>

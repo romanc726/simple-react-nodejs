@@ -39,7 +39,7 @@
   }
 }
 
-.video-loop {
+.vimeo-loop {
   @apply absolute inset-0 bg-black;
 
   [data-theme='metal'] & {
@@ -56,4 +56,8 @@
       filter: invert(1) blur(0px) grayscale(1);
     }
   }
+}
+
+.video-loop {
+  @apply relative m-0;
 }

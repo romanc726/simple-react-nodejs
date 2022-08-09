@@ -35,7 +35,7 @@ const VimeoLoop = ({
   }, [iframePlayer, inView])
 
   return (
-    <div className={cx('video-loop', className)} {...rest}>
+    <div className={cx('vimeo-loop', className)} {...rest}>
       <iframe
         ref={(node) => {
           observe(node)

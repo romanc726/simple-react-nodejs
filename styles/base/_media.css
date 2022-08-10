@@ -39,7 +39,8 @@
   }
 }
 
-.vimeo-loop {
+.vimeo-loop,
+.abs-video-loop {
   @apply absolute inset-0 bg-black;
 
   [data-theme='metal'] & {
@@ -60,4 +61,12 @@
 
 .video-loop {
   @apply relative m-0;
+
+  video {
+    max-height: 96vw;
+
+    @media (min-width: 940px) {
+      max-height: 49.4vw;
+    }
+  }
 }

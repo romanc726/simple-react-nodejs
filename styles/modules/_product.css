@@ -9,7 +9,7 @@
     @apply relative mb-48 md:mb-0 xs:p-32 border-b md:border-none;
 
     .carousel {
-      @apply mx-auto;
+      @apply mx-auto bg-transparent;
     }
   }
 

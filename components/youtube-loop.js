@@ -1,5 +1,4 @@
 import React from 'react'
-import cx from 'classnames'
 
 const YoutubeLoop = ({
   title,
@@ -11,7 +10,7 @@ const YoutubeLoop = ({
   if (!id) return null
 
   return (
-    <div className={cx('video-loop', className)} {...rest}>
+    <div className={className} {...rest}>
       {
         srcType === "youtubeId" ? (
           <iframe

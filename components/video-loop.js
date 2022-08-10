@@ -13,7 +13,7 @@ const VideoLoop = ({
   const posterImg = buildSrc(poster?.photo, {})
 
   return (
-    <div className={cx('video-loop', className)} {...rest}>
+    <div className={className} {...rest}>
       <figure
         style={{
           height: "100%",

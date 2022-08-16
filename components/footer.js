@@ -38,6 +38,10 @@ const Footer = ({ data = {} }) => {
               </div>
             )}
 
+            {block.externalLinks && (
+              <Menu items={block.externalLinks} className="menu-footer" />
+            )}
+
             {/* Put our extras in the last block */}
             {key === 3 && (
               <div className="footer--extras">

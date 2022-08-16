@@ -439,6 +439,9 @@ export const site = `
           social[]{
             icon,
             url
+          },
+          externalLinks[]{
+            ${link}
           }
         }
       ]

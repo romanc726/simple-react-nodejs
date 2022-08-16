@@ -78,7 +78,14 @@ export default {
       type: 'array',
       of: [{ type: 'socialLink' }],
       group: 'column4'
-    }
+    },
+    {
+      title: 'External Links',
+      name: 'externalLinks',
+      type: 'array',
+      of: [{ type: 'navLink' }],
+      group: 'column4'
+    },
   ],
   preview: {
     prepare() {
